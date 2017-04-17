@@ -1,4 +1,4 @@
-# Programming for Everybody (Getting Started with Python)
+# Programming for Everybody (Getting Started with Perl 6)
 ## Perl 6 (https://perl6.org/)
 
 ### For overview go to http://perl6intro.com/.
