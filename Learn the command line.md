@@ -1,8 +1,8 @@
-### pwd 
+### pwd
 
 Prints current working directory
 
-### cd 
+### cd
 
 Changes the working directory
 
@@ -15,11 +15,11 @@ Lists all contents of a directory.
 
 Lists all contents of a directory, including hidden files and directories.
 
-### ls -l 
+### ls -l
 
 Lists all contents in long format.
 
-### ls -t 
+### ls -t
 
 Orders files and directories by the time they were last modified
 
@@ -111,3 +111,64 @@ Multiple |s can be chained together. Here the standard output of cat volcanoes.t
 You can view the output data of this chain by typing cat islands.txt.
 
 
+### $ sort lakes.txt
+
+sort takes the standard input and orders it alphabetically for the standard output. Here, the lakes in sort lakes.txt are listed in alphabetical order.
+
+### $ cat lakes.txt | sort > sorted-lakes.txt
+
+Here, the command takes the standard output from cat lakes.txt and "pipes" it to sort. The standard output of sort is redirected to sorted-lakes.txt.
+
+You can view the output data by typing cat on the file sorted-lakes.txt.
+
+
+### $ uniq deserts.txt
+
+uniq stands for "unique" and filters out adjacent, duplicate lines in a file. Here uniq deserts.txt filters out duplicates of "Sahara Desert", because the duplicate of 'Sahara Desert' directly follows the previous instance. The "Kalahari Desert" duplicates are not adjacent, and thus remain.
+
+### $ sort deserts.txt | uniq
+
+A more effective way to call uniq is to call sort to alphabetize a file, and "pipe" the standard output to uniq. Here by piping sort deserts.txt to uniq, all duplicate lines are alphabetized (and thereby made adjacent) and filtered out.
+
+### sort deserts.txt | uniq > uniq-deserts.txt
+
+Here we simply send filtered contents to uniq-deserts.txt, which you can view with the cat command.
+
+
+### $ grep Mount mountains.txt
+
+grep stands for "global regular expression print". It searches files for lines that match a pattern and returns the results. It is also case sensitive. Here, grep searches for "Mount" in mountains.txt.
+
+### $ grep -i Mount mountains.txt
+
+grep -i enables the command to be case insensitive. Here, grep searches for capital or lowercase strings that match Mount in mountains.txt.
+
+The above commands are a great way to get started with grep. If you are familiar with regular expressions, you can use regular expressions to search for patterns in files.
+
+
+
+### $ grep -R Arctic /home/ccuser/workspace/geography
+
+grep -R searches all files in a directory and outputs filenames and lines containing matched results. -R stands for "recursive". Here grep -R searches the /home/ccuser/workspace/geography directory for the string "Arctic" and outputs filenames and **lines** with matched results.
+
+
+### $ grep -Rl Arctic /home/ccuser/workspace/geography
+
+grep -Rl searches all files in a directory and outputs only filenames with matched results. -R stands for "recursive" and l stands for "files with matches". Here grep -Rl searches the /home/ccuser/workspace/geography directory for the string "Arctic" and outputs filenames with matched results.
+
+
+### $ sed 's/snow/rain/' forests.txt
+
+sed stands for "stream editor". It accepts standard input and modifies it based on an expression, before displaying it as output data. It is similar to "find and replace".
+
+Let's look at the expression 's/snow/rain/':
+
++ s: stands for "substitution". it is always used when using sed for substitution.
++ snow: the search string, the text to find.
++ rain: the replacement string, the text to add in place.
+
+In this case, sed searches forests.txt for the word "snow" and replaces it with "rain." Importantly, the above command will only replace the first instance of "snow" on a line.
+
+### $ sed 's/snow/rain/g' forests.txt
+
+The above command uses the g expression, meaning "global". Here sed searches forests.txt for the word "snow" and replaces it with "rain", globally. All instances of "snow" on a line will be turned to "rain".
