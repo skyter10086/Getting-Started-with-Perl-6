@@ -163,7 +163,7 @@ sed stands for "stream editor". It accepts standard input and modifies it based 
 
 Let's look at the expression 's/snow/rain/':
 
-+ s: stands for "substitution". it is always used when using sed for substitution.
++ s: stands for "substitution". it is **always** used when using sed for substitution.
 + snow: the search string, the text to find.
 + rain: the replacement string, the text to add in place.
 
@@ -172,3 +172,60 @@ In this case, sed searches forests.txt for the word "snow" and replaces it with 
 ### $ sed 's/snow/rain/g' forests.txt
 
 The above command uses the g expression, meaning "global". Here sed searches forests.txt for the word "snow" and replaces it with "rain", globally. All instances of "snow" on a line will be turned to "rain".
+
+## Environment
+
+Each time we launch the terminal application, it creates a new session. The session immediately loads settings and preferences that make up the command line environment.
+
+We can configure the environment to support the commands and programs we create. This enables us to customize greetings and command aliases, and create variables to share across commands and programs.
+
+
+### $ nano ~/.bash_profile
+
+~/.bash_profile is the name of file used to store environment settings. It is commonly called the "bash profile". When a session starts, it will load the contents of the bash profile before executing commands.
+
++ The ~ represents the user's home directory.
++ The . indicates a hidden file.
++ The name ~/.bash_profile is important, since this is how the command line recognizes the bash profile.
+
+
+* The command nano ~/.bash_profile opens up ~/.bash_profile in nano.
+* The text echo "Welcome, Jane Doe" creates a greeting in the bash profile, which is saved. It tells the command line to echo the string "Welcome, Jane Doe" when a terminal session begins.
+* The command source ~/.bash_profile activates the changes in ~/.bash_profile for the current session. Instead of closing the terminal and needing to start a new session, source makes the changes available right away in the session we are in.
+
+
+
+### alias pd="pwd"
+
+What happens when you store above alias in ~/.bash_profile?
+
+The alias command allows you to create keyboard shortcuts, or aliases, for commonly used commands.
+
++ Here alias pd="pwd" creates the alias pd for the pwd command, which is then saved in the bash profile. Each time you enter pd, the output will be the same as the pwd command.
++ The command source ~/.bash_profile makes the alias pd available in the current session.
+Each time we open up the terminal, we can use the pd alias.
+
+
+### export PS1=">> "
+
+PS1 is a variable that defines the makeup and style of the command prompt.
+
+export PS1=">> " sets the command prompt variable and exports the variable. Here we change the default command prompt from $ to >>.
+After using the source command, the command line displays the new command prompt.
+
+
+### $ echo $HOME
+
+The HOME variable is an environment variable that displays the path of the home directory.
+
+
+
+### $ echo $PATH
+
+PATH is an environment variable that stores a list of directories separated by a colon.
+
+Each directory contains scripts for the command line to execute. The PATH variable simply lists which directories contain scripts.
+
+### env
+
+The env command stands for "environment", and returns a list of the environment variables for the current user. Here, the env command returns a number of variables, including PATH, PWD, PS1, and HOME.
