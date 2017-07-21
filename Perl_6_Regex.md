@@ -43,9 +43,9 @@
 
 |Symbol|Description|
 |:----:|:-----:|
-|+|preceding character one or more times|
-|*|preceding character zero or more times|
-|?|preceding character zero or one match|
+|+|matching preceding character one or more times|
+|*|matching preceding character zero or more times|
+|?|matching preceding character zero or one match|
 |(min..max)|specifying a range for the number of times preceding character is matched|
 
 
