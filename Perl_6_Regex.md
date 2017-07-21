@@ -1,5 +1,7 @@
 # Regexes in Perl 6
 
+---
+
 | Symbol   |      Description      |  
 |:--------:|:-------------:|
 | ~~ |  smart match operator  | 
