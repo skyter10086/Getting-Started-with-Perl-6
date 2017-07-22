@@ -1,7 +1,7 @@
 my $count=0; # Initializing variable
 
 
-#For loop: ooping through each line
+#For loop: looping through each line
 for "name_of_file".IO.lines ->$line {
   $count++;
 }
