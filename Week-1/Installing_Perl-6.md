@@ -22,6 +22,19 @@ Select the latest `*.msi` file and install in your system.
 
 Similar steps but select `*.dmg` file
 
+---
+
+To see if Perl 6 correctly installed check it in terminal or command-prompt by typing:
+`perl6 -v`.
+
+Something like this will be shown:
+`This is Rakudo version 2017.04.3 built on MoarVM version 2017.04-53-g66c6dda
+implementing Perl 6.c.`
+
+##### If you reached upto here, congrats!! 
+
+Let's get going!!
+
 
 
 
