@@ -28,7 +28,7 @@ To see if Perl 6 correctly installed check it in terminal or command-prompt by t
 `perl6 -v`.
 
 Something like this will be shown:
-`This is Rakudo version 2017.04.3 built on MoarVM version 2017.04-53-g66c6dda
+`This is Rakudo version 2017.07 built on MoarVM version 2017.07
 implementing Perl 6.c.`
 
 ##### If you reached upto here, congrats!! 
