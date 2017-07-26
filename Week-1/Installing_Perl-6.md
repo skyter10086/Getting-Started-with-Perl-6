@@ -20,7 +20,7 @@ Select the latest `*.msi` file and install in your system.
 
 ## Installing Perl 6 on MacOSX
 
-Similar steps but select `*.dmg` file
+Similar steps as Windows but select `*.dmg` file
 
 ---
 
