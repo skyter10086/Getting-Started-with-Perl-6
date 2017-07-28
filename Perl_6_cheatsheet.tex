@@ -4,28 +4,37 @@
 
 
 \title{\huge\textbf{Perl 6 Cheatsheet}}
-\author{Suman Khanal \\ \texttt{suman81765@gmail.com}\\ Kathmandu, Nepal}
+\author{Suman \\ \texttt{suman81765@gmail.com}\\ Kathmandu, Nepal}
 \date{July 20, 2017}
 
 \begin{document}
 	\maketitle
 	\section{Regular Expressions}
-	\begin{longtable}{lp{12cm}}
+	\begin{longtable}{@{}lp{12cm}}
 		\verb!~~!   & Smart match operator. \\
 		\verb!$/!  & Variable that contains the matched part of string. \\
 		\verb!~$/! & Stringify the \verb!~$/! variable. \\
 		\verb!.match!  & Method invocation syntax. \\
 		\verb!/ /!  & Pattern is kept between a pair of slash delimiters.\\
-		\verb|m{ }|	& Can use other delimiters except\ a pair of slash if we prefix the pattern with the letter``m"\\
-		\verb|rx/ /| & 	signifies a pattern which can be stored in a variable\\
+		\verb|m/ /| or \verb|m{ }|	& Can use other delimiters except\ a pair of slash if we prefix the pattern with the letter``m"\\
+		\verb|rx/ /| or \verb|rx{ }| & 	signifies a pattern which can be stored in a variable\\
+		\verb|.| & matches any character\\
 		\verb|\w| &	word character, matches one single alphanumeric character (alphabetical characters, digits and \_ character)\\		
 		\verb|\W|	& any other character than \verb|\w|\\
 		\verb|\d|	& digits\\
 		\verb|\D|	& non-digits\\
-		\verb|\s|	& Whitespace\\
+		\verb|\s|	& any kind of whitespace, not just vertical whitespace.\\
 		\verb|\S|	& non-whitespace\\
 		\verb|\n|	& newline\\
 		\verb|\N|	& non-newline\\
+		
+		\verb|\h| & matches a single horizontal whitespace character.\\
+		\verb|\H| & matches a single character that is not a horizontal whitespace character.\\
+		
+		\verb|\t| & matches a single tab character.\\
+		\verb|\T| & matches a single character that is not a tab.\\
+		\verb|\v| & matches a single vertical whitespace character.\\
+		\verb|\V| & matches a single character that is not vertical whitespace.\\		
 		\verb|<[ ]>|	& character class\\
 		\verb|<foo>| & subrule\\
 		\verb|<-[ ]>|	& Negating character class\\
@@ -44,12 +53,7 @@
 		\verb|( )|	& Capturing\\
 		\verb|$0, $1|	& first and second items of the matched object in list context\\
 		\verb|:i, :ignorecase|	& Ignore upper or lower case\\
-		\verb|:s,:sigspace|	& adverb that makes whitespace significant in regex pattern\\
-		
-		\verb|+|	& matching preceding character one or more times\\
-		\verb|*|	& matching preceding character zero or more times\\
-		\verb|?|	& matching preceding character zero or one match\\
-		\verb|** min..max|	& at least \verb|min| and at most \verb|max| times.\\		
+		\verb|:s,:sigspace|	& adverb that makes whitespace significant in regex pattern\\				
 		\verb|:m|   & ignore marks\\
 		\verb|:g|   & global\\
 		\verb|:r|   & ratchet\\
@@ -64,7 +68,7 @@
 
 
 \subsection{Predefined subrules}
-\begin{tabular}{lp{3cm}p{6cm}}
+\begin{tabular}{@{}lp{3cm}p{6cm}}
 	\verb|<alnum>|   & \verb|\w|      & `alpha' plus `digit'\\
 	\verb|<alpha>|   & \verb|<:L>|     & Alphabetic characters\\
 	\verb|<blank>|   & \verb|\h|      &  Horizontal whitespace\\
@@ -86,7 +90,15 @@
 	
 \end{tabular}
 
-	
+\subsection{Quantifiers}
+\begin{tabular}{@{}ll}
+	\verb|+|	& matching preceding character one or more times\\
+	\verb|*|	& matching preceding character zero or more times\\
+	\verb|?|	& matching preceding character zero or one match\\
+	\verb|** min..max|	& at least \verb|min| and at most \verb|max| times.\\
+\end{tabular}
+
+\vspace{20mm}	
 	Perl 6 is Unicode compliant.
 	
 	Whitespace is usually not significant within regex patterns unless specified with :s or :sigspace adverb.
