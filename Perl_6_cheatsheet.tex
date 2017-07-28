@@ -1,5 +1,6 @@
-\documentclass{article}
+\documentclass[12pt]{article}
 \usepackage{hyperref}
+\usepackage{longtable}
 
 
 \title{\huge\textbf{Perl 6 Cheatsheet}}
@@ -9,7 +10,7 @@
 \begin{document}
 	\maketitle
 	\section{Regular Expressions}
-	\begin{tabular}{ll}
+	\begin{longtable}{lp{12cm}}
 		\verb!~~!   & Smart match operator. \\
 		\verb!$/!  & Variable that contains the matched part of string. \\
 		\verb!~$/! & Stringify the \verb!~$/! variable. \\
@@ -59,11 +60,11 @@
 		\verb|:| & prevent backtracking\\
 		\verb|%| & modified quantifier\\
 		
-	\end{tabular}\\
+	\end{longtable}
 
 
 \subsection{Predefined subrules}
-\begin{tabular}{lll}
+\begin{tabular}{lp{3cm}p{6cm}}
 	\verb|<alnum>|   & \verb|\w|      & `alpha' plus `digit'\\
 	\verb|<alpha>|   & \verb|<:L>|     & Alphabetic characters\\
 	\verb|<blank>|   & \verb|\h|      &  Horizontal whitespace\\
