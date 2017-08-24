@@ -1,0 +1,38 @@
+---
+title: "Example"
+output: html_document
+---
+
+
+
+
+```{r setup, echo=FALSE}
+library(knitr)
+eng_perl6 <- function(options) {
+  # create a temporary file
+  f <- basename(tempfile("perl6", '.', paste('.', "perl6", sep = '')))
+  on.exit(unlink(f)) # cleanup temp file on function exit
+  writeLines(options$code, f)
+  out <- ''
+
+  # if eval != FALSE compile/run the code, preserving output
+  if (options$eval) {
+    out <- system(sprintf('perl6 %s', paste(f, options$engine.opts)), intern=TRUE)
+  }
+
+  # spit back stuff to the user
+  engine_output(options, options$code, out)
+}
+
+knitr::knit_engines$set(perl6=eng_perl6)
+```
+
+```{r, engine='perl6'}
+for dir("C:/Users/Suman/Desktop/ThinkPerl6/book") -> $file {
+  say $file.trim if $file~~/:i tex$/;
+
+}
+```
+
+
+### It works superb!!
