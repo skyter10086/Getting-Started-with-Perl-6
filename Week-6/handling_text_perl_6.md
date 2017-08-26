@@ -212,7 +212,7 @@ my $string = "Pokhara is Is beautiful City city of Nepal \n This is crazy";
 
 ``` perl
 my $string = "Pokhara is Is beautiful City city of Nepal";
-say $string.match("").Bool;
+say $string.match("is").Bool;
 ```
 
     ## True
