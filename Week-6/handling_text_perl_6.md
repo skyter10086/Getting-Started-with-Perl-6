@@ -6,20 +6,22 @@ These things are relevant in text mining.
 
 **Feedback appreciated.**
 
-``` perl
-my $string = "Pokhara is Is beautiful City city of Nepal";
-say $string.split(" ");
-```
-
-    ## (Pokhara is Is beautiful City city of Nepal)
-
 ### Split sentence on space.
 
 ``` perl
 my $string = "Pokhara is Is beautiful City city of Nepal";
+.say for $string.split(" ");
 say $string.split(" ");
 ```
 
+    ## Pokhara
+    ## is
+    ## Is
+    ## beautiful
+    ## City
+    ## city
+    ## of
+    ## Nepal
     ## (Pokhara is Is beautiful City city of Nepal)
 
 ### Length of splitted sentence (No of tokens)
@@ -37,19 +39,27 @@ say $string.split(" ").elems;
 
 ``` perl
 my $string = "Pokhara is Is beautiful City city of Nepal";
-say $string.words.grep(*.chars > 3);
+.say for $string.words.grep(*.chars > 3);
 ```
 
-    ## (Pokhara beautiful City city Nepal)
+    ## Pokhara
+    ## beautiful
+    ## City
+    ## city
+    ## Nepal
 
 OR
 
 ``` perl
 my $string = "Pokhara is Is beautiful City city of Nepal";
-say ($_ if $_.chars >3 for $string.words);
+.say for ($_ if $_.chars >3 for $string.words);
 ```
 
-    ## (Pokhara beautiful City city Nepal)
+    ## Pokhara
+    ## beautiful
+    ## City
+    ## city
+    ## Nepal
 
 ### Example words that begin with uppercase
 
@@ -81,10 +91,15 @@ for $string.split(" ").words -> $pokh {
 
 ``` perl
 my $string = "Pokhara is Is beautiful City city of Nepal";
-say $string.lc.words.unique;
+.say for $string.lc.words.unique;
 ```
 
-    ## (pokhara is beautiful city of nepal)
+    ## pokhara
+    ## is
+    ## beautiful
+    ## city
+    ## of
+    ## nepal
 
 ### Total number of unique words
 
@@ -108,10 +123,15 @@ And what are those elements?
 
 ``` perl
 my $string = "Pokhara is Is beautiful City city of Nepal";
-say $string.lc.words.unique
+.say for $string.lc.words.unique
 ```
 
-    ## (pokhara is beautiful city of nepal)
+    ## pokhara
+    ## is
+    ## beautiful
+    ## city
+    ## of
+    ## nepal
 
 (Note this doesn't work `say $string.words.lc.unique.elems;`)
 
@@ -149,10 +169,11 @@ say $string.wordcase;
 
 ``` perl
 my $string = "Pokhara is Is beautiful City city of Nepal";
-say $string.split("is") 
+.say for $string.split("is") 
 ```
 
-    ## (Pokhara   Is beautiful City city of Nepal)
+    ## Pokhara 
+    ##  Is beautiful City city of Nepal
 
 ### Joining based on smaller string
 
@@ -181,10 +202,11 @@ say $string.trim-leading; #Remove the whitespace characters from the beginning o
 
 ``` perl
 my $string = "Pokhara is Is beautiful City city of Nepal \n This is crazy";
-say $string.split("\n");
+.say for $string.split("\n");
 ```
 
-    ## (Pokhara is Is beautiful City city of Nepal   This is crazy)
+    ## Pokhara is Is beautiful City city of Nepal 
+    ##  This is crazy
 
 ### If the sentence contains the string
 
@@ -223,13 +245,16 @@ say $string.subst(/:i "is Is"/, ":) is");
 ``` perl
 my $string = "ouagadougou";
 say $string.split("ou");
-dd $string.split("ou"); #There are four elements
+.say for $string.split("ou"); #There are four elements
 say $string.split("ou").join("hijo");
 say $string.chars
 ```
 
     ## ( agad g )
-    ## ("", "agad", "g", "").Seq
+    ## 
+    ## agad
+    ## g
+    ## 
     ## hijoagadhijoghijo
     ## 11
 
@@ -237,7 +262,18 @@ say $string.chars
 
 ``` perl
 my $string = "ouagadougou";
-dd $string.split("");
+.say for $string.split("");
 ```
 
-    ## ("", "o", "u", "a", "g", "a", "d", "o", "u", "g", "o", "u", "").Seq
+    ## 
+    ## o
+    ## u
+    ## a
+    ## g
+    ## a
+    ## d
+    ## o
+    ## u
+    ## g
+    ## o
+    ## u
