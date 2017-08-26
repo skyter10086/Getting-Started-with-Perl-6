@@ -1,11 +1,12 @@
 # Handling text in Perl 6.
----
 
-### This is replication of what is [in this tutorial](https://www.coursera.org/learn/python-text-mining/lecture/MeheH/handling-text-in-python) in Perl 6.
+## This is replication of what is [in this tutorial](https://www.coursera.org/learn/python-text-mining/lecture/MeheH/handling-text-in-python) in Perl 6.
 
 These things are relevant in text mining.
 
 **Feedback appreciated.**
+
+---
 
 ### Split sentence on space.
 
@@ -267,6 +268,25 @@ my $string = "ouagadougou";
 ```
 
     ## 
+    ## o
+    ## u
+    ## a
+    ## g
+    ## a
+    ## d
+    ## o
+    ## u
+    ## g
+    ## o
+    ## u
+
+OR
+
+``` perl
+my $string = "ouagadougou";
+.say for $string.comb(/ \w /);
+```
+
     ## o
     ## u
     ## a
