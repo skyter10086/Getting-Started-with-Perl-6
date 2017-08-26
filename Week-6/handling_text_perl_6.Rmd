@@ -1,7 +1,8 @@
 ---
 title: "Perl 6"
 output:
-  html_document
+  md_document:
+    variant: markdown_github
 ---
 
 
@@ -208,4 +209,11 @@ my $string = "ouagadougou";
 
 
 ```
+OR 
 
+
+```{perl, engine.path="perl6"}
+my $string = "ouagadougou";
+.say for $string.comb(/ \w /);
+
+```
