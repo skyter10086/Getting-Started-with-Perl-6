@@ -1,6 +1,7 @@
-### Handling text in Perl 6.
+# Handling text in Perl 6.
+---
 
-##### This is replication of what is [in this tutorial](https://www.coursera.org/learn/python-text-mining/lecture/MeheH/handling-text-in-python) in Perl 6.
+### This is replication of what is [in this tutorial](https://www.coursera.org/learn/python-text-mining/lecture/MeheH/handling-text-in-python) in Perl 6.
 
 These things are relevant in text mining.
 
