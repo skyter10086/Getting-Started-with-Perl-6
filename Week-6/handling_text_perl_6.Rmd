@@ -20,18 +20,13 @@ These things are relevant in text mining.
 
 
 
-```{perl, engine.path="perl6"}
-my $string = "Pokhara is Is beautiful City city of Nepal";
-say $string.split(" ");
-
-
-```
 
 
 ### Split sentence on space.
 
 ```{perl, engine.path="perl6"}
 my $string = "Pokhara is Is beautiful City city of Nepal";
+.say for $string.split(" ");
 say $string.split(" ");
 ```
 
@@ -46,13 +41,13 @@ say $string.split(" ").elems;
 #### Example words that are longer than 3 letters
 ```{perl, engine.path="perl6"}
 my $string = "Pokhara is Is beautiful City city of Nepal";
-say $string.words.grep(*.chars > 3);
+.say for $string.words.grep(*.chars > 3);
 ```
 
 OR
 ```{perl, engine.path="perl6"}
 my $string = "Pokhara is Is beautiful City city of Nepal";
-say ($_ if $_.chars >3 for $string.words);
+.say for ($_ if $_.chars >3 for $string.words);
 ```
 
 
@@ -76,7 +71,7 @@ for $string.split(" ").words -> $pokh {
 ### Finding unique words
 ```{perl, engine.path="perl6"}
 my $string = "Pokhara is Is beautiful City city of Nepal";
-say $string.lc.words.unique;
+.say for $string.lc.words.unique;
 ```
 ### Total number of unique words
 
@@ -94,7 +89,7 @@ And what are those elements?
 
 ```{perl, engine.path="perl6"}
 my $string = "Pokhara is Is beautiful City city of Nepal";
-say $string.lc.words.unique
+.say for $string.lc.words.unique
 ```
 (Note this doesn't work `say $string.words.lc.unique.elems;`)
 
@@ -132,7 +127,7 @@ say $string.wordcase;
 ### Splitting based on smaller string
 ```{perl, engine.path="perl6"}
 my $string = "Pokhara is Is beautiful City city of Nepal";
-say $string.split("is") 
+.say for $string.split("is") 
 ```
 
 
@@ -161,7 +156,7 @@ say $string.trim-leading; #Remove the whitespace characters from the beginning o
 
 ```{perl, engine.path="perl6"}
 my $string = "Pokhara is Is beautiful City city of Nepal \n This is crazy";
-say $string.split("\n");
+.say for $string.lines;
 
 ```
 
@@ -170,7 +165,7 @@ say $string.split("\n");
 
 ```{perl, engine.path="perl6"}
 my $string = "Pokhara is Is beautiful City city of Nepal";
-say $string.match("").Bool;
+say $string.match("is").Bool;
 
 ```
 
@@ -199,7 +194,7 @@ say $string.subst(/:i "is Is"/, ":) is");
 ```{perl, engine.path="perl6"}
 my $string = "ouagadougou";
 say $string.split("ou");
-dd $string.split("ou"); #There are four elements
+.say for $string.split("ou"); #There are four elements
 say $string.split("ou").join("hijo");
 say $string.chars
 
@@ -209,7 +204,7 @@ say $string.chars
 
 ```{perl, engine.path="perl6"}
 my $string = "ouagadougou";
-dd $string.split("");
+.say for $string.split("");
 
 
 ```
