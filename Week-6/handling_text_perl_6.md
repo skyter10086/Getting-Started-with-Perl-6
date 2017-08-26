@@ -1,4 +1,10 @@
-### This is tutorial on Perl 6 language.
+### Handling text in Perl 6.
+
+##### This is replication of what is [in this tutorial](https://www.coursera.org/learn/python-text-mining/lecture/MeheH/handling-text-in-python) in Perl 6.
+
+These things are relevant in text mining.
+
+**Feedback appreciated.**
 
 ``` perl
 my $string = "Pokhara is Is beautiful City city of Nepal";
@@ -113,7 +119,9 @@ dd $a is basically short for note $a.perl plus some extra features
 
 ### Word comparison functions
 
-`$string.starts-with() $string.ends-with()`
+    $string.starts-with()
+
+    $string.ends-with()
 
 ### Check if a small string is part of larger sentence
 
@@ -136,3 +144,100 @@ say $string.wordcase;
     ## pokhara is is beautiful city city of nepal
     ## POKHARA IS IS BEAUTIFUL CITY CITY OF NEPAL
     ## Pokhara Is Is Beautiful City City Of Nepal
+
+### Splitting based on smaller string
+
+``` perl
+my $string = "Pokhara is Is beautiful City city of Nepal";
+say $string.split("is") 
+```
+
+    ## (Pokhara   Is beautiful City city of Nepal)
+
+### Joining based on smaller string
+
+``` perl
+my $string = "Pokhara is Is beautiful City city of Nepal";
+my @exam=$string.split("is") ;
+say @exam.join("the tourist city");
+```
+
+    ## Pokhara the tourist city Is beautiful City city of Nepal
+
+### 
+
+``` perl
+my $string = "    Pokhara is Is beautiful City city of Nepal      \n";
+say $string.trim;#Remove leading and trailing whitespace. 
+say $string.trim-trailing;#Remove the whitespace characters from the end of a string.
+say $string.trim-leading; #Remove the whitespace characters from the beginning of a string
+```
+
+    ## Pokhara is Is beautiful City city of Nepal
+    ##     Pokhara is Is beautiful City city of Nepal
+    ## Pokhara is Is beautiful City city of Nepal
+
+### Splitting string based on newline
+
+``` perl
+my $string = "Pokhara is Is beautiful City city of Nepal \n This is crazy";
+say $string.split("\n");
+```
+
+    ## (Pokhara is Is beautiful City city of Nepal   This is crazy)
+
+### If the sentence contains the string
+
+``` perl
+my $string = "Pokhara is Is beautiful City city of Nepal";
+say $string.match("").Bool;
+```
+
+    ## True
+
+### Indexing from left and right
+
+``` perl
+my $string = "Pokhara is Is beautiful City city of Nepal";
+say $string.index("is");
+say $string.rindex("Nepal");
+```
+
+    ## 8
+    ## 37
+
+### String replacement/substitution
+
+``` perl
+my $string = "Pokhara is Is beautiful City city of Nepal";
+say $string.subst(/:i nepal/, "World");
+
+say $string.subst(/:i "is Is"/, ":) is");
+```
+
+    ## Pokhara is Is beautiful City city of World
+    ## Pokhara :) is beautiful City city of Nepal
+
+### Splitting example
+
+``` perl
+my $string = "ouagadougou";
+say $string.split("ou");
+dd $string.split("ou"); #There are four elements
+say $string.split("ou").join("hijo");
+say $string.chars
+```
+
+    ## ( agad g )
+    ## ("", "agad", "g", "").Seq
+    ## hijoagadhijoghijo
+    ## 11
+
+### Split characters of words
+
+``` perl
+my $string = "ouagadougou";
+dd $string.split("");
+```
+
+    ## ("", "o", "u", "a", "g", "a", "d", "o", "u", "g", "o", "u", "").Seq
