@@ -2,9 +2,9 @@
 
 ## This is replication of what is [in this tutorial](https://www.coursera.org/learn/python-text-mining/lecture/MeheH/handling-text-in-python) in Perl 6.
 
-These things are relevant in text mining.
+**These things are relevant in text mining.**
 
-**Feedback appreciated.**
+
 
 ---
 
@@ -298,3 +298,6 @@ my $string = "ouagadougou";
     ## g
     ## o
     ## u
+    
+    
+**Feedback appreciated.**
