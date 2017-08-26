@@ -1,0 +1,216 @@
+---
+title: "Perl 6"
+output:
+  html_document
+---
+
+
+
+
+
+
+### Handling text in Perl 6.
+
+##### This is replication of what is [in this tutorial](https://www.coursera.org/learn/python-text-mining/lecture/MeheH/handling-text-in-python) in Perl 6.
+
+These things are relevant in text mining.
+
+**Feedback appreciated.**
+
+
+
+
+```{perl, engine.path="perl6"}
+my $string = "Pokhara is Is beautiful City city of Nepal";
+say $string.split(" ");
+
+
+```
+
+
+### Split sentence on space.
+
+```{perl, engine.path="perl6"}
+my $string = "Pokhara is Is beautiful City city of Nepal";
+say $string.split(" ");
+```
+
+### Length of splitted sentence (No of tokens)
+```{perl, engine.path="perl6"}
+my $string = "Pokhara is Is beautiful City city of Nepal";
+say $string.split(" ").elems;
+```
+
+### Find specific words
+
+#### Example words that are longer than 3 letters
+```{perl, engine.path="perl6"}
+my $string = "Pokhara is Is beautiful City city of Nepal";
+say $string.words.grep(*.chars > 3);
+```
+
+OR
+```{perl, engine.path="perl6"}
+my $string = "Pokhara is Is beautiful City city of Nepal";
+say ($_ if $_.chars >3 for $string.words);
+```
+
+
+
+### Example words that begin with uppercase
+```{perl, engine.path="perl6"}
+my $string = "Pokhara is Is beautiful City city of Nepal";
+for $string.split(" ").words -> $pokh {
+  say $pokh if $pokh eq $pokh.tc;
+};
+```
+
+### Example words that ends with 's'
+```{perl, engine.path="perl6"}
+my $string = "Pokhara is Is beautiful City city of Nepal";
+for $string.split(" ").words -> $pokh {
+  say $pokh if $pokh.ends-with('s');
+};
+```
+
+### Finding unique words
+```{perl, engine.path="perl6"}
+my $string = "Pokhara is Is beautiful City city of Nepal";
+say $string.lc.words.unique;
+```
+### Total number of unique words
+
+```{perl, engine.path="perl6"}
+my $string = "Pokhara is Is beautiful City city of Nepal";
+say $string.words.unique.elems;
+```
+But if we are to ignorecase then,
+
+```{perl, engine.path="perl6"}
+my $string = "Pokhara is Is beautiful City city of Nepal";
+say $string.lc.words.unique.elems;
+```
+And what are those elements?
+
+```{perl, engine.path="perl6"}
+my $string = "Pokhara is Is beautiful City city of Nepal";
+say $string.lc.words.unique
+```
+(Note this doesn't work `say $string.words.lc.unique.elems;`)
+
+dd $a is basically short for note $a.perl plus some extra features
+
+
+### Word comparison functions
+
+```
+$string.starts-with()
+
+$string.ends-with()
+```
+
+### Check if a small string is part of larger sentence
+```{perl, engine.path="perl6"}
+my $string = "Pokhara is Is beautiful City city of Nepal";
+say $string~~/:i "pokhara"/.Bool;
+```
+
+
+### String operations
+
+```{perl, engine.path="perl6"}
+my $string = "Pokhara is Is beautiful City city of Nepal";
+say $string.lc;
+say $string.uc;
+say $string.wordcase;
+
+```
+
+
+
+
+### Splitting based on smaller string
+```{perl, engine.path="perl6"}
+my $string = "Pokhara is Is beautiful City city of Nepal";
+say $string.split("is") 
+```
+
+
+### Joining based on smaller string 
+
+
+```{perl, engine.path="perl6"}
+my $string = "Pokhara is Is beautiful City city of Nepal";
+my @exam=$string.split("is") ;
+say @exam.join("the tourist city");
+```
+
+
+### 
+
+```{perl, engine.path="perl6"}
+my $string = "    Pokhara is Is beautiful City city of Nepal      \n";
+say $string.trim;#Remove leading and trailing whitespace. 
+say $string.trim-trailing;#Remove the whitespace characters from the end of a string.
+say $string.trim-leading; #Remove the whitespace characters from the beginning of a string
+
+```
+
+
+### Splitting string based on newline
+
+```{perl, engine.path="perl6"}
+my $string = "Pokhara is Is beautiful City city of Nepal \n This is crazy";
+say $string.split("\n");
+
+```
+
+### If the sentence contains the string 
+
+
+```{perl, engine.path="perl6"}
+my $string = "Pokhara is Is beautiful City city of Nepal";
+say $string.match("").Bool;
+
+```
+
+
+### Indexing from left and right 
+```{perl, engine.path="perl6"}
+my $string = "Pokhara is Is beautiful City city of Nepal";
+say $string.index("is");
+say $string.rindex("Nepal");
+
+```
+
+### String replacement/substitution
+
+```{perl, engine.path="perl6"}
+my $string = "Pokhara is Is beautiful City city of Nepal";
+say $string.subst(/:i nepal/, "World");
+
+say $string.subst(/:i "is Is"/, ":) is");
+
+```
+
+### Splitting example
+
+
+```{perl, engine.path="perl6"}
+my $string = "ouagadougou";
+say $string.split("ou");
+dd $string.split("ou"); #There are four elements
+say $string.split("ou").join("hijo");
+say $string.chars
+
+```
+
+### Split characters of words
+
+```{perl, engine.path="perl6"}
+my $string = "ouagadougou";
+dd $string.split("");
+
+
+```
+
