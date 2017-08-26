@@ -202,7 +202,7 @@ say $string.trim-leading; #Remove the whitespace characters from the beginning o
 
 ``` perl
 my $string = "Pokhara is Is beautiful City city of Nepal \n This is crazy";
-.say for $string.split("\n");
+.say for $string.lines;
 ```
 
     ## Pokhara is Is beautiful City city of Nepal 
