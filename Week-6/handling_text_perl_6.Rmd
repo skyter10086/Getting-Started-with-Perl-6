@@ -56,7 +56,7 @@ my $string = "Pokhara is Is beautiful City city of Nepal";
 ### Example words that begin with uppercase
 ```{perl, engine.path="perl6"}
 my $string = "Pokhara is Is beautiful City city of Nepal";
-for $string.split(" ").words -> $pokh {
+for $string.words -> $pokh {
   say $pokh if $pokh eq $pokh.tc;
 };
 ```
