@@ -67,7 +67,7 @@ my $string = "Pokhara is Is beautiful City city of Nepal";
 
 ``` perl
 my $string = "Pokhara is Is beautiful City city of Nepal";
-for $string.split(" ").words -> $pokh {
+for $string.words -> $pokh {
   say $pokh if $pokh eq $pokh.tc;
 };
 ```
