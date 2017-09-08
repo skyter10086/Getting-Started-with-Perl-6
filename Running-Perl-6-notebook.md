@@ -1,6 +1,6 @@
 ## Running Perl 6 notebook
 
-
+As I am more familiar with Docker, I am explaining the docker way of running Perl 6 notebook. Of course there are other ways to achieve the same.
 
 #### Step 1: Docker installation
 
