@@ -79,3 +79,5 @@ Then if you want to open your Perl 6 notebook, click the respective `.ipynb` fil
 
 **Happy coding in Perl 6 !!**
 
+Author can be reached at **suman81765@gmail.com**.
+
