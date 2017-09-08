@@ -55,8 +55,27 @@ After that you will have this Perl 6 notebook running.
 ![](https://i.imgur.com/JE4r3kl.png)
 ![](https://i.imgur.com/1lCXtTh.png)
 
-**Happy coding in Perl 6!!**
+#### STEP 6: Mounting the host folder into docker folder
 
+You may be having Perl 6 files or Perl 6 notebooks (that is .ipynb files)
+in a folder in your PC that you want to work inside docker. In that case you have to 
+**mount** that folder inside docker. 
 
+Here I will give one example. I have my Perl 6 files in a folder (Note I am in `Windows 10`)
+named `C:\Users\Suman\Desktop\Perl6` in my host and mounting on `/tmp` folder inside docker with the command `docker run -it -p 8888:8888 -v /c/Users/Suman/Desktop/Perl6:/tmp sumdoc/perl-6-notebook` which is clearly shown in figure below:
+![](https://i.imgur.com/7cBYs0J.png)
 
+#### STEP 7: Accessing the Perl 6 files of the host
+
+After following above instructions and inserting the token number you will reach the notebook page. Find the folder where you mounted your host folder. In my case I mounted on `/tmp`.
+
+![](https://i.imgur.com/dCaNB2j.png)
+
+Now click on that `/tmp` folder and you will find your Perl 6 files.
+
+![](https://i.imgur.com/r9oeJm5.png)
+
+Then if you want to open your Perl 6 notebook, click the respective `.ipynb` file. 
+
+**Happy coding in Perl 6 !!**
 
