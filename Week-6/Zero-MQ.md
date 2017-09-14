@@ -4,6 +4,8 @@
 
 This is the **documentation of Zero MQ API with the explanation of each function**. And the **R** code to generate it.
 
+This documents the **ØMQ/4.2.3 API**
+
 ``` r
 library(rvest)
 ```
