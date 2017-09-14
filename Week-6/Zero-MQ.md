@@ -2,7 +2,7 @@
 
 ------------------------------------------------------------------------
 
-This is the **documentation of Zero MQ API with the explanation of each functions**. And the **R** code to generate it.
+This is the **documentation of Zero MQ API with the explanation of each function**. And the **R** code to generate it.
 
 ``` r
 library(rvest)
