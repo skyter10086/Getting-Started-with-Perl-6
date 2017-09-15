@@ -1,0 +1,38 @@
+---
+title: "ØMQ API"
+output:
+  html_document
+    
+---
+
+---
+
+This is the **documentation of ØMQ API with the explanation of each function**.
+And the **R** code to generate it.
+
+This documents the **ØMQ/4.2.3 API**.
+
+
+```{r}
+library(rvest)
+library(stringr)
+library(knitr)
+library(kableExtra)
+
+
+data2 <- read_html("http://api.zeromq.org/master:_start") %>% 
+  html_nodes("ul li") %>% html_text()
+
+moddata2 <- data2 %>% str_detect("^zmq") %>% data2[.] %>% 
+  str_split_fixed("-", n=2)
+
+zmqtable <- data.frame(Functions=moddata2[,1],"What_do_they_do"=moddata2[,2])
+
+
+kable(zmqtable, "html") %>%
+  kable_styling(bootstrap_options = "striped")
+```
+
+
+
+
