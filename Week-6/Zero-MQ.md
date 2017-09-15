@@ -1,10 +1,8 @@
-## ZERO-MQ API
-
 ------------------------------------------------------------------------
 
-This is the **documentation of Zero MQ API with the explanation of each function**. And the **R** code to generate it.
+This is the **documentation of ØMQ API with the explanation of each function**. And the **R** code to generate it.
 
-This documents the **ØMQ/4.2.3 API**
+This documents the **ØMQ/4.2.3 API**.
 
 ``` r
 library(rvest)
@@ -15,6 +13,7 @@ library(rvest)
 ``` r
 library(stringr)
 library(knitr)
+library(kableExtra)
 
 
 data2 <- read_html("http://api.zeromq.org/master:_start") %>% 
@@ -23,77 +22,560 @@ data2 <- read_html("http://api.zeromq.org/master:_start") %>%
 moddata2 <- data2 %>% str_detect("^zmq") %>% data2[.] %>% 
   str_split_fixed("-", n=2)
 
-zmqtable <- data.frame(Functions=moddata2[,1],"What do they do"=moddata2[,2])
+zmqtable <- data.frame(Functions=moddata2[,1],"What_do_they_do"=moddata2[,2])
 
-kable(zmqtable)
+
+kable(zmqtable, "html") %>%
+  kable_styling(bootstrap_options = "striped")
 ```
 
-| Functions                     | What.do.they.do                                                           |
-|:------------------------------|:-------------------------------------------------------------------------:|
-| zmq                           | 0MQ lightweight messaging kernel                                          |
-| zmq\_atomic\_counter\_dec     | decrement an atomic counter                                               |
-| zmq\_atomic\_counter\_destroy | destroy an atomic counter                                                 |
-| zmq\_atomic\_counter\_inc     | increment an atomic counter                                               |
-| zmq\_atomic\_counter\_new     | create a new atomic counter                                               |
-| zmq\_atomic\_counter\_set     | set atomic counter to new value                                           |
-| zmq\_atomic\_counter\_value   | return value of atomic counter                                            |
-| zmq\_bind                     | accept incoming connections on a socket                                   |
-| zmq\_close                    | close 0MQ socket                                                          |
-| zmq\_connect                  | create outgoing connection from socket                                    |
-| zmq\_ctx\_destroy             | terminate a 0MQ context                                                   |
-| zmq\_ctx\_get                 | get context options                                                       |
-| zmq\_ctx\_new                 | create new 0MQ context                                                    |
-| zmq\_ctx\_set                 | set context options                                                       |
-| zmq\_ctx\_shutdown            | shutdown a 0MQ context                                                    |
-| zmq\_ctx\_term                | terminate a 0MQ context                                                   |
-| zmq\_curve\_keypair           | generate a new CURVE keypair                                              |
-| zmq\_curve\_public            | derive the public key from a private key                                  |
-| zmq\_curve                    | secure authentication and confidentiality                                 |
-| zmq\_disconnect               | Disconnect a socket                                                       |
-| zmq\_errno                    | retrieve value of errno for the calling thread                            |
-| zmq\_getsockopt               | get 0MQ socket options                                                    |
-| zmq\_gssapi                   | secure authentication and confidentiality                                 |
-| zmq\_has                      | check a ZMQ capability                                                    |
-| zmq\_init                     | initialise 0MQ context                                                    |
-| zmq\_inproc                   | 0MQ local in-process (inter-thread) communication transport               |
-| zmq\_ipc                      | 0MQ local inter-process communication transport                           |
-| zmq\_msg\_close               | release 0MQ message                                                       |
-| zmq\_msg\_copy                | copy content of a message to another message                              |
-| zmq\_msg\_data                | retrieve pointer to message content                                       |
-| zmq\_msg\_gets                | get message metadata property                                             |
-| zmq\_msg\_get                 | get message property                                                      |
-| zmq\_msg\_init\_data          | initialise 0MQ message from a supplied buffer                             |
-| zmq\_msg\_init\_size          | initialise 0MQ message of a specified size                                |
-| zmq\_msg\_init                | initialise empty 0MQ message                                              |
-| zmq\_msg\_more                | indicate if there are more message parts to receive                       |
-| zmq\_msg\_move                | move content of a message to another message                              |
-| zmq\_msg\_recv                | receive a message part from a socket                                      |
-| zmq\_msg\_routing\_id         | return routing ID for message, if any                                     |
-| zmq\_msg\_send                | send a message part on a socket                                           |
-| zmq\_msg\_set\_routing\_id    | set routing ID property on message                                        |
-| zmq\_msg\_set                 | set message property                                                      |
-| zmq\_msg\_size                | retrieve message content size in bytes                                    |
-| zmq\_null                     | no security or confidentiality                                            |
-| zmq\_pgm                      | 0MQ reliable multicast transport using PGM                                |
-| zmq\_plain                    | clear-text authentication                                                 |
-| zmq\_poll                     | input/output multiplexing                                                 |
-| zmq\_proxy\_steerable         | built-in 0MQ proxy with control flow                                      |
-| zmq\_proxy                    | start built-in 0MQ proxy                                                  |
-| zmq\_recvmsg                  | receive a message part from a socket                                      |
-| zmq\_recv                     | receive a message part from a socket                                      |
-| zmq\_send\_const              | send a constant-memory message part on a socket                           |
-| zmq\_sendmsg                  | send a message part on a socket                                           |
-| zmq\_send                     | send a message part on a socket                                           |
-| zmq\_setsockopt               | set 0MQ socket options                                                    |
-| zmq\_socket\_monitor          | monitor socket events                                                     |
-| zmq\_socket                   | create 0MQ socket                                                         |
-| zmq\_strerror                 | get 0MQ error message string                                              |
-| zmq\_tcp                      | 0MQ unicast transport using TCP                                           |
-| zmq\_term                     | terminate 0MQ context                                                     |
-| zmq\_tipc                     | 0MQ unicast transport using TIPC                                          |
-| zmq\_udp                      | 0MQ UDP multicast and unicast transport                                   |
-| zmq\_unbind                   | Stop accepting connections on a socket                                    |
-| zmq\_version                  | report 0MQ library version                                                |
-| zmq\_vmci                     | 0MQ transport over virtual machine communicatios interface (VMCI) sockets |
-| zmq\_z85\_decode              | decode a binary key from Z85 printable text                               |
-| zmq\_z85\_encode              | encode a binary key as Z85 printable text                                 |
+<table class="table table-striped" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Functions
+</th>
+<th style="text-align:left;">
+What\_do\_they\_do
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+zmq
+</td>
+<td style="text-align:left;">
+0MQ lightweight messaging kernel
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+zmq\_atomic\_counter\_dec
+</td>
+<td style="text-align:left;">
+decrement an atomic counter
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+zmq\_atomic\_counter\_destroy
+</td>
+<td style="text-align:left;">
+destroy an atomic counter
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+zmq\_atomic\_counter\_inc
+</td>
+<td style="text-align:left;">
+increment an atomic counter
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+zmq\_atomic\_counter\_new
+</td>
+<td style="text-align:left;">
+create a new atomic counter
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+zmq\_atomic\_counter\_set
+</td>
+<td style="text-align:left;">
+set atomic counter to new value
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+zmq\_atomic\_counter\_value
+</td>
+<td style="text-align:left;">
+return value of atomic counter
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+zmq\_bind
+</td>
+<td style="text-align:left;">
+accept incoming connections on a socket
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+zmq\_close
+</td>
+<td style="text-align:left;">
+close 0MQ socket
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+zmq\_connect
+</td>
+<td style="text-align:left;">
+create outgoing connection from socket
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+zmq\_ctx\_destroy
+</td>
+<td style="text-align:left;">
+terminate a 0MQ context
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+zmq\_ctx\_get
+</td>
+<td style="text-align:left;">
+get context options
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+zmq\_ctx\_new
+</td>
+<td style="text-align:left;">
+create new 0MQ context
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+zmq\_ctx\_set
+</td>
+<td style="text-align:left;">
+set context options
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+zmq\_ctx\_shutdown
+</td>
+<td style="text-align:left;">
+shutdown a 0MQ context
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+zmq\_ctx\_term
+</td>
+<td style="text-align:left;">
+terminate a 0MQ context
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+zmq\_curve\_keypair
+</td>
+<td style="text-align:left;">
+generate a new CURVE keypair
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+zmq\_curve\_public
+</td>
+<td style="text-align:left;">
+derive the public key from a private key
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+zmq\_curve
+</td>
+<td style="text-align:left;">
+secure authentication and confidentiality
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+zmq\_disconnect
+</td>
+<td style="text-align:left;">
+Disconnect a socket
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+zmq\_errno
+</td>
+<td style="text-align:left;">
+retrieve value of errno for the calling thread
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+zmq\_getsockopt
+</td>
+<td style="text-align:left;">
+get 0MQ socket options
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+zmq\_gssapi
+</td>
+<td style="text-align:left;">
+secure authentication and confidentiality
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+zmq\_has
+</td>
+<td style="text-align:left;">
+check a ZMQ capability
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+zmq\_init
+</td>
+<td style="text-align:left;">
+initialise 0MQ context
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+zmq\_inproc
+</td>
+<td style="text-align:left;">
+0MQ local in-process (inter-thread) communication transport
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+zmq\_ipc
+</td>
+<td style="text-align:left;">
+0MQ local inter-process communication transport
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+zmq\_msg\_close
+</td>
+<td style="text-align:left;">
+release 0MQ message
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+zmq\_msg\_copy
+</td>
+<td style="text-align:left;">
+copy content of a message to another message
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+zmq\_msg\_data
+</td>
+<td style="text-align:left;">
+retrieve pointer to message content
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+zmq\_msg\_gets
+</td>
+<td style="text-align:left;">
+get message metadata property
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+zmq\_msg\_get
+</td>
+<td style="text-align:left;">
+get message property
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+zmq\_msg\_init\_data
+</td>
+<td style="text-align:left;">
+initialise 0MQ message from a supplied buffer
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+zmq\_msg\_init\_size
+</td>
+<td style="text-align:left;">
+initialise 0MQ message of a specified size
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+zmq\_msg\_init
+</td>
+<td style="text-align:left;">
+initialise empty 0MQ message
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+zmq\_msg\_more
+</td>
+<td style="text-align:left;">
+indicate if there are more message parts to receive
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+zmq\_msg\_move
+</td>
+<td style="text-align:left;">
+move content of a message to another message
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+zmq\_msg\_recv
+</td>
+<td style="text-align:left;">
+receive a message part from a socket
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+zmq\_msg\_routing\_id
+</td>
+<td style="text-align:left;">
+return routing ID for message, if any
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+zmq\_msg\_send
+</td>
+<td style="text-align:left;">
+send a message part on a socket
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+zmq\_msg\_set\_routing\_id
+</td>
+<td style="text-align:left;">
+set routing ID property on message
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+zmq\_msg\_set
+</td>
+<td style="text-align:left;">
+set message property
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+zmq\_msg\_size
+</td>
+<td style="text-align:left;">
+retrieve message content size in bytes
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+zmq\_null
+</td>
+<td style="text-align:left;">
+no security or confidentiality
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+zmq\_pgm
+</td>
+<td style="text-align:left;">
+0MQ reliable multicast transport using PGM
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+zmq\_plain
+</td>
+<td style="text-align:left;">
+clear-text authentication
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+zmq\_poll
+</td>
+<td style="text-align:left;">
+input/output multiplexing
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+zmq\_proxy\_steerable
+</td>
+<td style="text-align:left;">
+built-in 0MQ proxy with control flow
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+zmq\_proxy
+</td>
+<td style="text-align:left;">
+start built-in 0MQ proxy
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+zmq\_recvmsg
+</td>
+<td style="text-align:left;">
+receive a message part from a socket
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+zmq\_recv
+</td>
+<td style="text-align:left;">
+receive a message part from a socket
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+zmq\_send\_const
+</td>
+<td style="text-align:left;">
+send a constant-memory message part on a socket
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+zmq\_sendmsg
+</td>
+<td style="text-align:left;">
+send a message part on a socket
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+zmq\_send
+</td>
+<td style="text-align:left;">
+send a message part on a socket
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+zmq\_setsockopt
+</td>
+<td style="text-align:left;">
+set 0MQ socket options
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+zmq\_socket\_monitor
+</td>
+<td style="text-align:left;">
+monitor socket events
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+zmq\_socket
+</td>
+<td style="text-align:left;">
+create 0MQ socket
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+zmq\_strerror
+</td>
+<td style="text-align:left;">
+get 0MQ error message string
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+zmq\_tcp
+</td>
+<td style="text-align:left;">
+0MQ unicast transport using TCP
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+zmq\_term
+</td>
+<td style="text-align:left;">
+terminate 0MQ context
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+zmq\_tipc
+</td>
+<td style="text-align:left;">
+0MQ unicast transport using TIPC
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+zmq\_udp
+</td>
+<td style="text-align:left;">
+0MQ UDP multicast and unicast transport
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+zmq\_unbind
+</td>
+<td style="text-align:left;">
+Stop accepting connections on a socket
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+zmq\_version
+</td>
+<td style="text-align:left;">
+report 0MQ library version
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+zmq\_vmci
+</td>
+<td style="text-align:left;">
+0MQ transport over virtual machine communicatios interface (VMCI) sockets
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+zmq\_z85\_decode
+</td>
+<td style="text-align:left;">
+decode a binary key from Z85 printable text
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+zmq\_z85\_encode
+</td>
+<td style="text-align:left;">
+encode a binary key as Z85 printable text
+</td>
+</tr>
+</tbody>
+</table>
