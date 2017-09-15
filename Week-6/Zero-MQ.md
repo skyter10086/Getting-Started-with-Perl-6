@@ -29,7 +29,7 @@ kable(zmqtable)
 ```
 
 | Functions                     | What\_do\_they\_do                                                        |
-|:------------------------------|:--------------------------------------------------------------------------|
+|:------------------------------|:-------------------------------------------------------------------------:|
 | zmq                           | 0MQ lightweight messaging kernel                                          |
 | zmq\_atomic\_counter\_dec     | decrement an atomic counter                                               |
 | zmq\_atomic\_counter\_destroy | destroy an atomic counter                                                 |
