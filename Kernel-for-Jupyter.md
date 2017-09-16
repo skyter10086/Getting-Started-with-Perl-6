@@ -1,9 +1,9 @@
 ## Writing kernels for Jupyter.
 
-There are two ways of writing kernells for Jupyter.
+There are **two ways** of writing **kernels** for Jupyter.
 One way is to write native kernel from the scratch or making python wrapper kernels.
 
-I have compiled all the videos that would be helpful for anyone trying to write kernels for Jupyter in their favorite programming language.
+I have compiled all the videos that would be helpful for anyone trying to write kernel for Jupyter in their favorite programming language.
 
 
 [**Video 1**](https://www.youtube.com/embed/pVte8t2TPNU).
