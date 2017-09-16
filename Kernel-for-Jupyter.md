@@ -5,6 +5,8 @@ One way is to write native kernel from the scratch or making python wrapper kern
 
 I have compiled all the videos that would be helpful for anyone trying to write kernel for Jupyter in their favorite programming language.
 
+For official documentation, [see here](https://jupyter-client.readthedocs.io/en/latest/messaging.html).
+
 
 [**Video 1**](https://www.youtube.com/embed/pVte8t2TPNU).
 
