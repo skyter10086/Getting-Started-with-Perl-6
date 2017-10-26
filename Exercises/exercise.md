@@ -3,9 +3,10 @@
 ###### The Collatz Conjecture:
 
 The Collatz Conjecture, named after Lothar Collatz, states that, starting from any natural number, it is possible to reach 1 by following certain rules:
+
 1. Take n:
-      If n is odd, set n = 3n+1.
-      Else, if n is even, set n = n/2.
+      + If n is odd, set n = 3n+1.
+      + Else, if n is even, set n = n/2.
 2. Repeat the procedure until 1 is reached.
 
 The conjecture is currently unproven, although it has been shown to hold for numbers up to 5476377146882523136.
